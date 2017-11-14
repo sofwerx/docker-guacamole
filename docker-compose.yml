@@ -36,8 +36,6 @@ services:
     hostname: adminer
     ports:
       - 18080:8080
-    links:
-      - postgres:db
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
@@ -56,8 +54,6 @@ services:
     restart: always
     container_name: guacamole
     hostname: guacamole
-    links:
-      - guacd
     volumes:
       - guacamole-data:/data
     environment:
