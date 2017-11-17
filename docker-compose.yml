@@ -40,7 +40,9 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   guacd:
-    build: guacd/
+    build:
+      context: guacd/
+      dockerfile: Dockerfile.x86_64
     image: sofwerx/guacd
     restart: always
     container_name: guacd
@@ -49,7 +51,9 @@ services:
       - 4822:4822
 
   guacamole:
-    build: guacamole/
+    build:
+      context: guacamole/
+      dockerfile: Dockerfile.x86_64
     image: sofwerx/guacamole
     restart: always
     container_name: guacamole
