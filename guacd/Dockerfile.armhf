@@ -44,10 +44,10 @@ ENV \
         uuid-devel"
 
 # Bring environment up-to-date and install guacamole-server dependencies
-RUN yum -y update                        && \
-    yum -y install epel-release          && \
-    yum -y install $RUNTIME_DEPENDENCIES && \
-    yum clean all
+RUN yum -y update
+#RUN yum -y install epel-release
+
+RUN yum -y install $RUNTIME_DEPENDENCIES
 
 RUN sed -i -e 's/^#baseurl/baseurl/' /etc/yum.repos.d/epel.repo && \
     sed -i -e 's/^mirrorlist/#mirrorlist/' /etc/yum.repos.d/epel.repo && \
